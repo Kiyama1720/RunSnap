@@ -1,0 +1,46 @@
+
+<h2>詳細画面</h2>
+<h4>タイトル</h4>
+<p><%= @post.title %></p>
+<h4>内容</h4>
+<p><%= @post.body %></p>
+<h4>住所</h4>
+<p><%= @post.address %></p>
+<h4>画像</h4>
+
+<%= hidden_field_tag :latitude, @post.latitude, id: 'latitude' %>
+<%= hidden_field_tag :longitude, @post.longitude, id: 'longitude' %>
+<h4>Google Map</h4>
+<div id='map'></div>
+
+<%= link_to "編集する", edit_post_path(@post.id) %>
+<%= link_to "削除する", post_path(@post.id), data: {confirm:"この投稿を削除しますがよろしいですか？"}, method: :delete %>
+
+<div id="script"></div>
+<script>
+  var map
+
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
+
+    const latitude = parseFloat(document.getElementById("latitude").value);
+    const longitude = parseFloat(document.getElementById("longitude").value);
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: latitude, lng: longitude},
+      zoom: 16,
+    });
+
+    marker = new google.maps.Marker({
+      position:  {lat: +latitude, lng: +longitude},
+      map: map
+    });
+  }
+
+  var google_map_api_key = gon.google_map_api_key;
+  var sc = document.createElement('script');
+  sc.src = `https://maps.googleapis.com/maps/api/js?key=${google_map_api_key}&callback=initMap`;
+  sc.async = true;
+  sc.defer = true;
+  document.getElementById('script').appendChild(sc);
+</script>
