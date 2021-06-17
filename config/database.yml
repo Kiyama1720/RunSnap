@@ -26,11 +26,11 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['rds-mysql-server'] %>
+  database: <%= ENV['DB_DATABASE'] %>
   adapter: mysql2
   encoding: utf8mb4
   charset: utf8mb4
   collation: utf8mb4_general_ci
-  host: <%= ENV['rds-mysql-server.csy117vjtmik.us-east-1.rds.amazonaws.com'] %>
-  username: <%= ENV['root'] %>
-  password: <%= ENV['haruki101'] %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
