@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
     gon.google_map_api_key = ENV["GOOGLE_MAP_API_KEY"]
   end
 
