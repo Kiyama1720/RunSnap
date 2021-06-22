@@ -37,3 +37,4 @@ https://docs.google.com/spreadsheets/d/12sHwmC4nNO47IjCRry9xMANcq80Lny4MS_o8K2IT
 
 ## 使用素材
 pixabay　https://pixabay.com/ja/
+logo maker https://logo-maker.stores.jp/
