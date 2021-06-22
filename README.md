@@ -36,5 +36,5 @@ https://docs.google.com/spreadsheets/d/12sHwmC4nNO47IjCRry9xMANcq80Lny4MS_o8K2IT
 - IDE：Cloud9
 
 ## 使用素材
-pixabay　https://pixabay.com/ja/
+pixabay　https://pixabay.com/ja/ <br>
 logo maker https://logo-maker.stores.jp/
