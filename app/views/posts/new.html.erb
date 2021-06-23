@@ -1,3 +1,38 @@
+<h2>新規投稿</h2>
+<%= form_with model:@post, local:true do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: '' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: '' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.attachment_field :image %>
+  </div>
+
+  <h2>gmap</h2>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, placeholder:'○○県○○市○○', id: 'address' %>
+    <input type="button" value="ピンを指す" onclick="codeAddress()">
+  </div>
+
+  <%= f.hidden_field :latitude, id: 'latitude' %>
+  <%= f.hidden_field :longitude, id: 'longitude' %>
+
+  <div id='map'></div>
+
+  <%= f.submit '投稿' %>
+<% end %>
+
+<div id="script"></div>
 <script>
   var map
 
@@ -44,37 +79,3 @@
   sc.defer = true;
   document.getElementById('script').appendChild(sc);
 </script>
-<div id="script"></div>
-<h2>新規投稿</h2>
-<%= form_with model:@post, local:true do |f| %>
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: '' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: '' %>
-  </div>
-
-
-  <div class="form-group">
-    <%= f.label :image %>
-     <!--f.attachment_field :image-->
-  </div>
-
-  <h2>gmap</h2>
-
-  <div class="form-group">
-    <%= f.label :address %>
-    <%= f.text_field :address, placeholder:'○○県○○市○○', id: 'address' %>
-    <input type="button" value="ピンを指す" onclick="codeAddress()">
-  </div>
-
-  <%= f.hidden_field :latitude, id: 'latitude' %>
-  <%= f.hidden_field :longitude, id: 'longitude' %>
-
-  <div id='map'></div>
-
-  <%= f.submit '投稿' %>
-<% end %>

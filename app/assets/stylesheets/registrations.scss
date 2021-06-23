@@ -1,0 +1,24 @@
+// Place all the styles related to the registrations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login {
+  margin-top: 100px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+
+  h2 {
+    text-align: center;
+    margin: 10px 0 30px;
+  }
+
+  .btn {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+.logo {
+    &__font {
+        font-size: 1.5em;
+    }
+}

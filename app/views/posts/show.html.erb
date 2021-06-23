@@ -7,6 +7,7 @@
 <h4>住所</h4>
 <p><%= @post.address %></p>
 <h4>画像</h4>
+<p><%= attachment_image_tag @post, :image %></p>
 
 <%= hidden_field_tag :latitude, @post.latitude, id: 'latitude' %>
 <%= hidden_field_tag :longitude, @post.longitude, id: 'longitude' %>

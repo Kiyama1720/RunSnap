@@ -1,0 +1,26 @@
+<h2>ユーザー情報編集画面</h2>
+<%= form_with model:@user, local:true do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: '' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id, class: '' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: '' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.attachment_field :image %>
+  </div>
+
+  <%= f.submit '編集完了' %>
+<% end %>
+
+<%= link_to "戻る", post_path(@user.id) %>
