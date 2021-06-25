@@ -1,26 +1,37 @@
-<h2>ユーザー情報編集画面</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: '' %>
+<div class="container head">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light py-4 mb-0">プロフィール編集</h5>
+      <div class="form-body p-4">
+        <%= form_with model: @user, local: true do |f| %>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i></span>
+            </div>
+            <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前"%>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i></span>
+            </div>
+            <%= f.text_field :user_id, autofocus: true, class:"form-control", id:"inputUserId", placeholder:"ユーザーID"%>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+            </div>
+            <%= f.text_field :email, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"メールアドレス"%>
+          </div>
+          <%= attachment_image_tag @user, :image, :fill, 150, 150, fallback: "no_image.jpg", class:"mb-3" %>
+          <div class="input-group my-3">
+            <label>
+            <%= f.attachment_field :image, placeholder: "プロフィール画像", class: "w-100" %>
+            </label>
+          </div>
+          <%= f.submit "変更を保存", class:"btn btn-lg btn-block btn-info mt-5" %>
+          <%= link_to "アカウントを削除する", users_hide_path(current_user), method: :put, "data-confirm" => "本当に削除しますか？", class: "btn btn-lg btn-block btn-info mt-2 bg-danger border border-danger" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id, class: '' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: '' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= f.attachment_field :image %>
-  </div>
-
-  <%= f.submit '編集完了' %>
-<% end %>
-
-<%= link_to "戻る", post_path(@user.id) %>
+</div>

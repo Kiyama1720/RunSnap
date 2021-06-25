@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
+
   def new
     @post = Post.new
-    p ENV["GOOGLE_MAP_API_KEY"]
     gon.google_map_api_key = ENV["GOOGLE_MAP_API_KEY"]
   end
 
