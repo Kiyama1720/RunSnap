@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @favorites = Favorite.where(user_id: params[:id])
     @posts = Post.where(user_id: params[:id])
-    if params[:id] != current_user.id
+    if @user.id != current_user.id
       render :show
     end
   end

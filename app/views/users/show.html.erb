@@ -3,7 +3,7 @@
   <h5 class="profile-name display-4"><%= @user.name %></h5>
   <% if @user.id == current_user.id %>
     <div class="mt-auto">
-    <p><%= link_to "プロフィール編集", edit_user_path(current_user), class:"text-dark" %></p>
+      <p><%= link_to "プロフィール編集", edit_user_path(@user.id), class:"text-dark" %></p>
     </div>
   <% end %>
 </div>
