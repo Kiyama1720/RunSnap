@@ -11,8 +11,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to post_path(@post.id)
+    gon.google_map_api_key = ENV["GOOGLE_MAP_API_KEY"]
+    if @post.save
+      redirect_to post_path(@post.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -23,13 +27,21 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @comment = Comment.new
     gon.google_map_api_key = ENV["GOOGLE_MAP_API_KEY"]
+    if @post.user_id != current_user.id
+      render :show
+    end
   end
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post.id)
+    gon.google_map_api_key = ENV["GOOGLE_MAP_API_KEY"]
+    if @post.update(post_params)
+      redirect_to post_path(@post.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
