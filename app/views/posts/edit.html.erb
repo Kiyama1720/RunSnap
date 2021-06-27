@@ -3,30 +3,36 @@
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">画像投稿フォーム</h5>
       <div class="form-body p-4">
-        <% if @post.errors.any? %>
-          <%= @post.errors.count %>件のエラーが発生しました
-          <% @post.errors.full_messages.each do |message| %>
-            <br>・<%= message %>
-          <% end %>
-        <% end %>
         <%= form_with model: @post, local:true do |f| %>
         <div class="image">
           <p class="text-center"><%= attachment_image_tag @post, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"mb-3" %></p>
         </div>
           <%= f.attachment_field :image, class: "w-100" %>
+          <% if @post.errors.include?(:image) %>
+            <p class="text-danger mb-0">※ <%= @post.errors.full_messages_for(:image).first %>
+          <% end %>
           <div class="input-group mb-3 mt-4">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
             </div>
             <%= f.text_field :title, class:"form-control", placeholder:"タイトル" %>
+            <% if @post.errors.include?(:title) %>
+              <p class="text-danger mb-0">※ <%= @post.errors.full_messages_for(:title).first %>
+            <% end %>
           </div>
           <%= f.text_area :body, class:"form-control", rows:"3", placeholder:"本文をここに" %>
+          <% if @post.errors.include?(:body) %>
+            <p class="text-danger mb-0">※ <%= @post.errors.full_messages_for(:body).first %>
+          <% end %>
           <div class="input-group mb-3 mt-3">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
             </div>
             <%= f.text_field :address, id: 'address', class:"form-control", placeholder:"住所" %>
             <input type="button" value="ピンを指す" onclick="codeAddress()" class="btn btn-info ml-2">
+            <% if @post.errors.include?(:address) %>
+              <p class="text-danger mb-0">※ <%= @post.errors.full_messages_for(:address).first %>
+            <% end %>
             <%= f.hidden_field :latitude, id: 'latitude' %>
             <%= f.hidden_field :longitude, id: 'longitude' %>
           </div>

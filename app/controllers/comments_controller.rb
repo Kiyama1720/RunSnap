@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    comment = current_user.comments.new(post_comment_params)
-    comment.post_id = @post.id
-    comment.comment_number = 1
-    comment.save
+    @comment = current_user.comments.new(post_comment_params)
+    @comment.post_id = @post.id
+    @comment.comment_number = 1
+    @comment.save
     redirect_to post_path(@post.id)
   end
 

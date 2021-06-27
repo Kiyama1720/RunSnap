@@ -8,3 +8,9 @@ ja:
         body: 本文
         image: 画像
         address: 住所
+  activerecord:
+    models:
+      comment: コメント
+    attributes:
+      comment:
+        comment: コメント
