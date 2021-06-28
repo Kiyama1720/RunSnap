@@ -13,6 +13,9 @@
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li>
+              <%= link_to "一覧画面", posts_path, class: 'nav-link text-dark' %>
+            </li>
+            <li>
               <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link text-dark' %>
             </li>
             <li>
