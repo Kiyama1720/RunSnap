@@ -23,7 +23,8 @@
 
 ## 設計書
 ER図：https://drive.google.com/file/d/1f29oPlCYDp9OgbGuQ8jQ2doNr44cRnf4/view?usp=sharing　<br>
-DB詳細設計書：https://drive.google.com/file/d/1eEnHesBTdg-5svZS-qQM40tToAI8tuTm/view?usp=sharing
+DB詳細設計書：https://drive.google.com/file/d/1eEnHesBTdg-5svZS-qQM40tToAI8tuTm/view?usp=sharing　<br>
+アプリケーション詳細設計書：https://docs.google.com/spreadsheets/d/1WkS6pgKey_Wjgt7Ak-7J_jl_fXEPm9tZ/edit#gid=549108681
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/12sHwmC4nNO47IjCRry9xMANcq80Lny4MS_o8K2ITlEI/edit?usp=sharing
