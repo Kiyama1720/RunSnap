@@ -1,4 +1,14 @@
+
+
 <div class="card-list-container py-4 main">
+  <div class="container">
+    <div class="search-form justify-content-center mb-4 text-center">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :keyword, value: @keyword, placeholder:"検索" %>
+        <%= f.submit "検索", class:"btn btn-primary " %>
+      <% end %>
+    </div>
+  </div>
   <% @posts.each do |post| %>
     <div class="card w-50 mx-auto mb-4 shadow-lg">
       <%= link_to post_path(post.id) do %>

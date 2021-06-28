@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
+  get 'search' => 'posts#search'
 
   resources :users, only: [:show, :edit, :update]
   put "/users/:id/hide" => "users#hide", as: 'users_hide'
